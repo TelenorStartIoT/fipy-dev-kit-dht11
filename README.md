@@ -61,7 +61,7 @@ Open the folder using the "File > Open Folder" ("File > Open" on MacOS) option i
 
 ![Open project in VSCode](https://github.com/TelenorStartIoT/tutorials/blob/master/01-fipy-udp/assets/15-open-project.png)
 
-![main file VScode](https://github.com/TelenorStartIoT/tutorials/blob/master/01-fipy-udp/assets/16-open-project.png)
+![main file VScode](https://github.com/TelenorStartIoT/fipy-dev-kit-dht11/blob/master/assets/04-mainfile_vscode.jpg)
 
 ### 2.3 Run the Program
 
