@@ -69,13 +69,13 @@ Connect the FiPy that is mounted on the expansion board to your computer (if not
 
 To upload and run the program on your FiPy, simply click the "Upload" button located at the bottom bar. This will first upload the code, then it will reset your FiPy and run the uploaded code.
 
-### 5.5 Check the Output From the Program
+### 2.4 Check the Output From the Program
 
 If everything goes well you should see output from the program in the Pycom Console window in VSCode. The image shows what it could look like (the output from the program might be different).
 
 ![Program output](addlink)
 
-#### 5.5.1 Unable to run program
+#### 2.4.1 Unable to run program
 
 If you are not able to run the example code and see below error in your console. 
 
