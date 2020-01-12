@@ -20,7 +20,7 @@ This chapter will show you how to connect sensors DHT11 temperature and humidty 
 
  You can see 'Three Jumper wires' with different colours have been attached to sensor.
  
- ![Sensor](https://github.com/TelenorStartIoT/tutorials/tree/master/14-Connecting-sensors-fipy/assets/00-DHT11_FipySensor.jpg)
+ ![Sensor](https://github.com/TelenorStartIoT/fipy-dev-kit-dht11/blob/master/assets/00-DHT11_FipySensor.jpg)
 
 - Bydefault one end has been attached to sensor and you need to attach the other end to your fipy device.
 - To do so use additional **'M/M Jumpwires'** to connect sensor to your device.
