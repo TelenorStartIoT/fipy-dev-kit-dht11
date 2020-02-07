@@ -1,44 +1,44 @@
-# Connecting sensors for Fipy
+# Connecting DHT11 sensor for FiPy
 
-> Works with NB-IoT or LTE-M
-
-This tutorial gives brief instructions on how to connect DHT11 temperature and humidity sensor to fipy device
+In this tutorial we will guide you through how to connect a DHT11 temperature and humidity sensor to your FiPy device. 
 
 You will learn how to:
 
-   * How to connect sensors to fipy device
-   * Programing device to measure temperature and humidity
+   * Connect the sensor to your device
+   * Change the code on the FiPy to read real sensor data
    
+This tutorial builds directly on the previous FiPy tutorials for [MQTT](https://github.com/TelenorStartIoT/tutorials/tree/master/02-fipy-mqtt) and [CoAP](https://github.com/TelenorStartIoT/tutorials/tree/master/01-fipy-coap), and will focus on how to implement the sensor code in to the main.py file of the previous tutorials. 
 
-## 1. How to connect sensors to fipy device
 
-Hope you have successfully connected your fipy device and tried the example program in the previous tutorial.
+## 1. How to connect the sensor to FiPy device
 
-This chapter will show you how to connect **'DHT11 temperature and humidty sensors'** to your fipy device.
+**Important:** Disconnect your FiPy device from power before connecting the sensor.
+
+This chapter will show you how to connect the **'DHT11 temperature and humidty sensor'** to your fipy device.
 
  ![dht11_sensor](https://github.com/TelenorStartIoT/fipy-dev-kit-dht11/blob/master/assets/00-DHT11_FipySensor.jpg)
 
 ### 1.1 Attaching the sensor to your fipy device.
 
- You can see 'Three Jumper wires' with different colours have been attached to sensor.
- 
-- By default one end has been attached to sensor or attach one end to the sensor and other end has to be attach to your fipy device.
-
-- To do so use additional **'M/M Jumpwires'** to connect sensor to your device.
+The sensor comes with a cable consisting of three jumper wires with a plug in each end. The plug on one side goes into the socket on the sensor and the other plug needs to be extended by with **m/m jumper wires** to fit onto your device's expansion board. 
 
 ![jumper_wire](https://github.com/TelenorStartIoT/fipy-dev-kit-dht11/blob/master/assets/01-MTM-Jumperwire.jpg)
 
-- To connect the pins from sensor to the respective pins in device,follow below image.
+It is important that you keep track of which wire is which in order to connect your sensor correctly.
 
 ![sensor_pin](https://github.com/TelenorStartIoT/fipy-dev-kit-dht11/blob/master/assets/02-Sensor_pin.jpg)
 
+The black **GND** is the grounding and goes in to the **GND** pin socket on your expansion borad. 
+The red **3V3** is the voltage and goes in to the **3V3** pin socket on your expansion board.
+The green **Data** wire can go in several of the sockets, but in this tutorial we are using the socket marked with **P3** on the expansion board.
 
-Once you connected sensor to your device. It should look like below.
+Once you have connected the sensor to your device it should look like the picture below.
+
 ![connected_device](https://github.com/TelenorStartIoT/fipy-dev-kit-dht11/blob/master/assets/03-Sensor-connected-device.jpg)
 
 
 **Important:**
-You should connect correct Pin from sensor to the respective pins to your device, or else it will damage the sensor and board.
+Make sure you have connected the pins correctly before reconnecting your device to power. If they are placed incorrectly it may cause damage to the sensor and your board. 
 
 
 ## 2 Programing device to measure temperature and humidity
@@ -47,7 +47,7 @@ Now it's a time to start programming the dev-kit to measure temperature and humi
 
 ### 2.1 Download Example Code
 
-You can download the example code from here: (addlink to program)
+You can download the example code from [here](https://github.com/TelenorStartIoT/fipy-dev-kit-dht11).
 
 You should choose the "Download ZIP" option in the "Clone or Download" button pop-up. This will download a ZIP archive with the example code.
 
