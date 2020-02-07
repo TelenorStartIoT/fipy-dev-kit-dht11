@@ -51,7 +51,7 @@ You can download the example code from [here](https://github.com/TelenorStartIoT
 
 You should choose the "Download ZIP" option in the "Clone or Download" button pop-up. This will download a ZIP archive with the example code.
 
-![Download ZIP](https://github.com/TelenorStartIoT/fipy-dev-kit-dht11/assets/Sensor_download_ZIP.PNG)
+![Download ZIP](https://github.com/TelenorStartIoT/fipy-dev-kit-dht11/assets/sensor_download_ZIP.PNG)
 
 Unzip the folder. How to do this varies depending on your computer's operative system. Most systems will unzip if you double click on the zip folder.
 
@@ -60,6 +60,7 @@ Unzip the folder. How to do this varies depending on your computer's operative s
 In the folder you just downloaded there is another folder called *"example_code"*. Within this you will find *"lib"* and *"main"*. 
 
 **Step 1**
+
 The first thing you should do it to open *"lib"* and copy the only file you find there, called ***dht***. Now navigate to the folder that contain your project code from the previous tutorial. Find the *"lib"* folder in your project and paste the *dht* file. Now you have a library file supporting the sensor in your project code. 
 
 Open your project in VSCode. If you did step 1 right your *lib* folder should contain *dht.py* in addition to *telenor.py* and *mqtt.py* like the picture below.
@@ -67,6 +68,7 @@ Open your project in VSCode. If you did step 1 right your *lib* folder should co
 ![Library](https://github.com/TelenorStartIoT/fipy-dev-kit-dht11/assets/sensor_lib_vscode.PNG)
 
 **Step 2**
+
 The second thing you need to do is to integrate the sensor code into your project's main.py file. In VSCode, open your main.py file so you can write in it. Below the *"import"* functions in line 1-5 write this to import the functions we need to read from the sensor:
 
 ```python 
