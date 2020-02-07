@@ -51,7 +51,7 @@ You can download the example code from [here](https://github.com/TelenorStartIoT
 
 You should choose the "Download ZIP" option in the "Clone or Download" button pop-up. This will download a ZIP archive with the example code.
 
-![Download ZIP](https://github.com/TelenorStartIoT/fipy-dev-kit-dht11/assets/sensor_download_ZIP.PNG)
+![Download ZIP](https://github.com/TelenorStartIoT/fipy-dev-kit-dht11/blob/master/assets/Sensor_download_ZIP.PNG)
 
 Unzip the folder. How to do this varies depending on your computer's operative system. Most systems will unzip if you double click on the zip folder.
 
@@ -65,7 +65,7 @@ The first thing you should do it to open *"lib"* and copy the only file you find
 
 Open your project in VSCode. If you did step 1 right your *lib* folder should contain *dht.py* in addition to *telenor.py* and *mqtt.py* like the picture below.
 
-![Library](https://github.com/TelenorStartIoT/fipy-dev-kit-dht11/assets/sensor_lib_vscode.PNG)
+![Library](https://github.com/TelenorStartIoT/fipy-dev-kit-dht11/blob/master/assets/Sensor_lib_vscode.png)
 
 **Step 2**
 
