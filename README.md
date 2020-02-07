@@ -45,27 +45,71 @@ Make sure you have connected the pins correctly before reconnecting your device 
 
 Now it's a time to start programming the dev-kit to measure temperature and humidity.
 
-### 2.1 Download Example Code
+### 2.1 Download and unzip the Example Code
 
 You can download the example code from [here](https://github.com/TelenorStartIoT/fipy-dev-kit-dht11).
 
 You should choose the "Download ZIP" option in the "Clone or Download" button pop-up. This will download a ZIP archive with the example code.
 
-![Download ZIP](https://github.com/TelenorStartIoT/tutorials/blob/master/01-fipy-udp/assets/14-download-zip.png)
+![Download ZIP](https://github.com/TelenorStartIoT/fipy-dev-kit-dht11/assets/Sensor_download_ZIP.PNG)
 
-### 2.2 Unzip the Example Code and Open It In VSCode
+Unzip the folder. How to do this varies depending on your computer's operative system. Most systems will unzip if you double click on the zip folder.
 
-Unzip the example code. How to do this varies depending on your computer system. Most systems will unzip it if you double click on the zip file.
+### 2.2 Integrate the sensor code into your existing project
 
-Open the folder using the "File > Open Folder" ("File > Open" on MacOS) option in VSCode.
+In the folder you just downloaded there is another folder called *"example_code"*. Within this you will find *"lib"* and *"main"*. 
 
-![Open project in VSCode](https://github.com/TelenorStartIoT/tutorials/blob/master/01-fipy-udp/assets/15-open-project.png)
+**Step 1**
+The first thing you should do it to open *"lib"* and copy the only file you find there, called ***dht***. Now navigate to the folder that contain your project code from the previous tutorial. Find the *"lib"* folder in your project and paste the *dht* file. Now you have a library file supporting the sensor in your project code. 
 
-![main file VScode](https://github.com/TelenorStartIoT/fipy-dev-kit-dht11/blob/master/assets/04-mainfile_vscode.jpg)
+Open your project in VSCode. If you did step 1 right your *lib* folder should contain *dht.py* in addition to *telenor.py* and *mqtt.py* like the picture below.
 
-### 2.3 Run the Program
+![Library](https://github.com/TelenorStartIoT/fipy-dev-kit-dht11/assets/sensor_lib_vscode.PNG)
 
-Connect the FiPy that is mounted on the expansion board to your computer (if not already). Make sure that the SIM and LTE antenna is connected! The Pymakr plugin in VSCode will automatically detect the dev-kit.
+**Step 2**
+The second thing you need to do is to integrate the sensor code into your project's main.py file. In VSCode, open your main.py file so you can write in it. Below the *"import"* functions in line 1-5 write this to import the functions we need to read from the sensor:
+
+```python 
+import pycom 
+from machine import Pin
+from dth import DTH
+```
+
+Below this you should write the code that defines the led light on the FiPy and the sensor:
+
+```python
+pycom.heartbeat(False)
+pycom.rgbled(0x000008)
+th = DTH('P3',0)
+sleep(2)
+```
+
+Lastly we need to replace the code that generates random data and replace it with code for the real sensor. You find this code in line 58 and 59. 
+
+Delete these two lines:
+
+```python
+temperature = ((urandom(1)[0] / 256) * 10) + 20
+humidity = ((urandom(1)[0] / 256) * 10) + 60
+```
+
+And repace them with this:
+
+```python
+result = th.read()
+temperature = result.temperature
+humidity = result.humidity
+if result.is_valid():
+  pycom.rgbled(0x001000) #green
+  print("Temperature: %d C" % result.temperature)
+  print("Humidity: %d %%" % result.humidity)
+```
+
+Now save (ctrl+s) your project.
+
+### 2.3 Upload and run the Program
+
+Connect your device to your computer (if not already). Make sure that the SIM and LTE antenna is connected! The Pymakr plugin in VSCode will automatically detect the dev-kit.
 
 To upload and run the program on your FiPy, simply click the "Upload" button located at the bottom bar. This will first upload the code, then it will reset your FiPy and run the uploaded code.
 
