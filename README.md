@@ -117,21 +117,9 @@ To upload and run the program on your FiPy, simply click the "Upload" button loc
 
 ### 2.4 Check the Output From the Program
 
-If everything goes well you should see output from the program in the Pycom Console window in VSCode. The image shows what it could look like (the output from the program might be different).
+If everything goes well you should see output from the program in the Pycom Console window in VSCode. This should look very similar to the output you got with the randomly generated data. 
 
-![Program output](addlink)
+Tips and tricks for fault-searching and problem-solving can be found both in our [forum](https://startiot.telenor.com/forums/forum/end-devices/pycom-fipy/) and the previous FiPy dev-kit [tutorials](https://startiot.telenor.com/tutorials/). 
 
-#### 2.4.1 Unable to run program
 
-If you are not able to run the example code and see below error in your console. 
-
-![port error](https://github.com/TelenorStartIoT/tutorials/blob/master/01-fipy-udp/assets/17-fipy-error.jpg)
-
-Follow below steps
-- Disconnect your device.
-- Connect the pin '3V3' and 'P12'. 
-- Monitor LED light,the heartbeat LED will begin flashing orange slowly. If after 3 seconds the pin is still held high, the LED will start blinking faster. At this point release the wire from pin 'P12'.
-- Connect your device using USB and check if you were able to run the program.
-
-If everything goes well, you will able to see the output in console.
 
