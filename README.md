@@ -45,59 +45,22 @@ Make sure you have connected the pins correctly before reconnecting your device 
 
 Now it's a time to start programming the dev-kit to measure temperature and humidity.
 
-### 2.1 Download and unzip the Example Code
+### 2.1 Activate the sensor code in your project
 
-You can download the example code from [here](https://github.com/TelenorStartIoT/fipy-dev-kit-dht11).
+We are building on what you did in the previous tutorials, so if you have not completed one of them we reccomend you do this first. 
 
-You should choose the "Download ZIP" option in the "Clone or Download" button pop-up. This will download a ZIP archive with the example code.
-
-![Download ZIP](https://github.com/TelenorStartIoT/fipy-dev-kit-dht11/blob/master/assets/Sensor_download_ZIP.PNG)
-
-Unzip the folder. How to do this varies depending on your computer's operative system. Most systems will unzip if you double click on the zip folder.
-
-### 2.2 Integrate the sensor code into your existing project
-
-In the folder you just downloaded there is another folder called *"example_code"*. Within this you will find *"lib"* and *"main"*. 
-
-**Step 1**
-
-The first thing you should do it to open *"lib"* and copy the only file you find there, called ***dht***. Now navigate to the folder that contain your project code from the previous tutorial. Find the *"lib"* folder in your project and paste the *dht* file. Now you have a library file supporting the sensor in your project code. 
-
-Open your project in VSCode. If you did step 1 right your *lib* folder should contain *dht.py* in addition to *telenor.py* and *mqtt.py* like the picture below.
-
-![Library](https://github.com/TelenorStartIoT/fipy-dev-kit-dht11/blob/master/assets/Sensor_lib_vscode.png)
-
-**Step 2**
-
-The second thing you need to do is to integrate the sensor code into your project's main.py file. In VSCode, open your main.py file so you can write in it. Below the *"import"* functions in line 1-5 write this to import the functions we need to read from the sensor:
-
-```python 
-import pycom 
-from machine import Pin
-from dth import DTH
-```
-
-Below this you should write the code that defines the led light on the FiPy and the sensor:
+The code you need in order to activate your sensor is already written in the main.py file of the example code from the FiPy MQTT and CoAP tutorials. What you need to do now is to "un-comment" them in the code. You un-comment the lines by removing the hashtag (#) in front of the text. This is the code pieces you have to un-comment:
 
 ```python
+# Configurations for the sensor
 pycom.heartbeat(False)
-pycom.rgbled(0x000008)
+pycom.rgbled(0x000008) # blue
 th = DTH('P3',0)
-sleep(2)
+time.sleep(2)
 ```
 
-Lastly we need to replace the code that generates random data and replace it with code for the real sensor. You find this code in line 58 and 59. 
-
-Delete these two lines:
-
 ```python
-temperature = ((urandom(1)[0] / 256) * 10) + 20
-humidity = ((urandom(1)[0] / 256) * 10) + 60
-```
-
-And repace them with this:
-
-```python
+# Activate the sensor readings
 result = th.read()
 temperature = result.temperature
 humidity = result.humidity
@@ -105,6 +68,17 @@ if result.is_valid():
   pycom.rgbled(0x001000) #green
   print("Temperature: %d C" % result.temperature)
   print("Humidity: %d %%" % result.humidity)
+```
+
+These sections are found:
+* In the MQTT tutorial code, lines 12-16 and 73-78
+* In the CoAP tutorial code, lines 11-15 and 39-44
+
+You also need to comment out or delete the section that generates random data and is found right above the "activation of sensor readings" code.
+
+```python
+temperature = ((urandom(1)[0] / 256) * 10) + 20
+humidity = ((urandom(1)[0] / 256) * 10) + 60
 ```
 
 Now save (ctrl+s) your project.
